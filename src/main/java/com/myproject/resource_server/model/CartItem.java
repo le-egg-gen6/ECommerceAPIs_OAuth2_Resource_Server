@@ -12,7 +12,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString(exclude = "cart")
-public class CartItem {
+public class CartItem extends BaseModel {
 
     @ManyToOne
     @JoinColumn(name = "cart_id")

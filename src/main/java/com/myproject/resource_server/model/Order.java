@@ -24,7 +24,7 @@ public class Order extends BaseModel {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetailList;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "discount_id")
     private Discount discount;
 
