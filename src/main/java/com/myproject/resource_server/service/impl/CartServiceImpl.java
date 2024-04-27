@@ -1,8 +1,14 @@
 package com.myproject.resource_server.service.impl;
 
 import com.myproject.resource_server.converter.cart.CartResponseConverter;
+import com.myproject.resource_server.dto.CartItemDTO;
+import com.myproject.resource_server.error.exception.InvalidArgumentException;
+import com.myproject.resource_server.error.exception.ResourceNotFoundException;
 import com.myproject.resource_server.model.Cart;
+import com.myproject.resource_server.model.CartItem;
+import com.myproject.resource_server.model.ProductVariant;
 import com.myproject.resource_server.model.User;
+import com.myproject.resource_server.payload.request.cart.ConfirmCartRequest;
 import com.myproject.resource_server.payload.response.cart.CartResponse;
 import com.myproject.resource_server.repository.CartRepository;
 import com.myproject.resource_server.service.CartService;
@@ -10,6 +16,12 @@ import com.myproject.resource_server.service.ProductService;
 import com.myproject.resource_server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class CartServiceImpl implements CartService {
