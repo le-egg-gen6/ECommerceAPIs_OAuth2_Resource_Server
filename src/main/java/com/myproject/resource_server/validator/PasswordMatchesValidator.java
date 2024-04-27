@@ -1,13 +1,12 @@
 package com.myproject.resource_server.validator;
 
+import com.myproject.resource_server.payload.request.user.PasswordForgotValidateRequest;
+import com.myproject.resource_server.payload.request.user.PasswordResetRequest;
+import com.myproject.resource_server.payload.request.user.RegisterUserRequest;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
-
-    @Override
-    public void initialize(PasswordMatches constraintAnnotation) {
-    }
 
     @Override
     public boolean isValid(Object obj, ConstraintValidatorContext context) {
@@ -21,8 +20,6 @@ public class PasswordMatchesValidator implements ConstraintValidator<PasswordMat
             PasswordForgotValidateRequest passwordForgotValidateRequest = (PasswordForgotValidateRequest) obj;
             return passwordForgotValidateRequest.getNewPassword().equals(passwordForgotValidateRequest.getNewPasswordConfirm());
         }
-
         return false;
-
     }
 }

@@ -15,10 +15,6 @@ public class CustomEmailValidator implements ConstraintValidator<CustomEmail, St
     private Matcher matcher;
 
     @Override
-    public void initialize(CustomEmail constraintAnnotation) {
-    }
-
-    @Override
     public boolean isValid(String email, ConstraintValidatorContext context) {
         return (validateEmail(email));
     }
